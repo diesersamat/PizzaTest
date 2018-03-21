@@ -1,10 +1,14 @@
 package me.sgayazov.pizzatest.activity
 
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
 import me.sgayazov.pizzatest.R
+import me.sgayazov.pizzatest.presenter.DrinksPresenter
+import javax.inject.Inject
 
-class DrinksActivity : AppCompatActivity() {
+class DrinksActivity : BaseActivity() {
+
+    @Inject
+    lateinit var presenter: DrinksPresenter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

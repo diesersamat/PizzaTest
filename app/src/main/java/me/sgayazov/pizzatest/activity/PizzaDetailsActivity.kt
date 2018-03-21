@@ -2,11 +2,15 @@ package me.sgayazov.pizzatest.activity
 
 import android.os.Bundle
 import android.support.design.widget.Snackbar
-import android.support.v7.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_pizza.*
 import me.sgayazov.pizzatest.R
+import me.sgayazov.pizzatest.presenter.PizzaDetailsPresenter
+import javax.inject.Inject
 
-class PizzaActivity : AppCompatActivity() {
+class PizzaDetailsActivity : BaseActivity() {
+
+    @Inject
+    lateinit var presenter: PizzaDetailsPresenter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
