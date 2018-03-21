@@ -3,7 +3,77 @@
   <component name="issues">
     <option name="index">
       <map>
+        <entry key="/Dummy.txt">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/app/build.gradle">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/me/sgayazov/pizzatest/activity/CartActivity.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/me/sgayazov/pizzatest/activity/DrinksActivity.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/me/sgayazov/pizzatest/activity/MainActivity.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/me/sgayazov/pizzatest/activity/PizzaActivity.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/me/sgayazov/pizzatest/activity/ScrollingActivity.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/me/sgayazov/pizzatest/domain/Drink.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/me/sgayazov/pizzatest/domain/Ingredient.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/me/sgayazov/pizzatest/domain/Ingredients.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/me/sgayazov/pizzatest/domain/Order.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/me/sgayazov/pizzatest/domain/Pizza.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/me/sgayazov/pizzatest/domain/PizzaWrapper.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/me/sgayazov/pizzatest/network/PizzaService.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/res/color/white.xml">
           <value>
             <set />
           </value>
@@ -13,7 +83,27 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/res/layout/content_scrolling.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/res/layout/item_pizza.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/res/layout/loader_error_layout.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/app/src/main/res/values/colors.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/res/values/dimens.xml">
           <value>
             <set />
           </value>
@@ -29,6 +119,101 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/../flickrdemo/app/build.gradle">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../flickrdemo/app/src/main/java/me/sgayazov/flickrdemo/networking/RetrofitService.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../mobile.android.lamoda/lamoda/src/main/java/com/lamoda/lite/domain/checkout/CheckoutData.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../mobile.android.lamoda/lamoda/src/main/java/com/lamoda/lite/mvp/presenter/checkout/CheckoutMainPresenter.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../mobile.android.lamoda/lamoda/src/main/java/com/lamoda/lite/mvp/presenter/checkout/CheckoutMapPresenter.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../mobile.android.lamoda/lamoda/src/main/java/com/lamoda/lite/mvp/view/checkout/PaymentMethodsFragment.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../mobile.android.lamoda/lamoda/src/main/java/com/lamoda/lite/mvp/view/checkout/courier/CourierAddressFragment.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../mobile.android.lamoda/lamoda/src/main/java/com/lamoda/lite/mvp/view/checkout/delivery/CityCheckoutFragment.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../mobile.android.lamoda/lamoda/src/main/java/com/lamoda/lite/mvp/view/checkout/delivery/PostAddressFragment.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../mobile.android.lamoda/lamoda/src/main/java/com/lamoda/lite/mvp/view/checkout/delivery/PreviousDeliveriesFragment.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../mobile.android.lamoda/lamoda/src/main/java/com/lamoda/lite/mvp/view/checkout/delivery/PreviousPickupDetailsFragment.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../mobile.android.lamoda/lamoda/src/main/java/com/lamoda/lite/mvp/view/checkout/map/PickupDetailsFragment.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../mobile.android.lamoda/lamoda/src/main/java/com/lamoda/lite/mvp/view/checkout/personal/ContactInfoFragment.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../mobile.android.lamoda/lamoda/src/main/java/com/lamoda/lite/mvp/view/checkout/personal/QuickCheckoutFragment.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../mobile.android.lamoda/lamoda/src/main/java/com/lamoda/lite/mvp/view/widget/ContactInfoFieldsWidget.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../mobile.android.lamoda/lamoda/src/main/java/com/lamoda/lite/mvp/view/widget/DeliveryAddressWidget.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../mobile.android.lamoda/lamoda/src/main/java/com/lamoda/lite/mvp/view/widget/PaymentMethodsWidget.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../mobile.android.lamoda/lamoda/src/main/java/com/lamoda/lite/mvp/view/widget/ServiceLevelsWidget.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../mobile.android.lamoda/lamoda/src/main/java/com/lamoda/lite/presentationlayer/factories/MarketplacePackageHolderFactory.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="/fragment.java">
           <value>
             <set />
           </value>
