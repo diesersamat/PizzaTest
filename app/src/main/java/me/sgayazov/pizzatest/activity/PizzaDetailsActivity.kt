@@ -12,6 +12,9 @@ import me.sgayazov.pizzatest.presenter.PizzaDetailsPresenter
 import javax.inject.Inject
 
 class PizzaDetailsActivity : BaseActivity() {
+    override fun inject() {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
 
     @Inject
     lateinit var presenter: PizzaDetailsPresenter
@@ -57,4 +60,8 @@ class PizzaDetailsActivity : BaseActivity() {
     fun ingredientClicked(ingredient: Ingredient) {
         TODO()
     }
+}
+
+interface PizzaDetailsView : BaseView {
+
 }

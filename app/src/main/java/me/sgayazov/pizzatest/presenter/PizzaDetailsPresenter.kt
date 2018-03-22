@@ -1,5 +1,8 @@
 package me.sgayazov.pizzatest.presenter
 
-class PizzaDetailsPresenter : BasePresenter() {
+import me.sgayazov.pizzatest.activity.PizzaDetailsView
+import me.sgayazov.pizzatest.dataprovider.Interactor
+
+class PizzaDetailsPresenter(view: PizzaDetailsView, interactor: Interactor) : BasePresenter<PizzaDetailsView>(view, interactor) {
 
 }

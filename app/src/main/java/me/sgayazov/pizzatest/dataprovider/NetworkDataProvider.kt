@@ -8,11 +8,12 @@ import me.sgayazov.pizzatest.domain.Ingredient
 import me.sgayazov.pizzatest.domain.PizzaWrapper
 import me.sgayazov.pizzatest.network.PizzaService
 import okhttp3.OkHttpClient
+import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
 
-private const val BASE_URL = "https://api.myjson.com/bins"
+private const val BASE_URL = "https://api.myjson.com/bins/"
 private const val ORDER_URL = "http://httpbin.org/post"
 
 class NetworkDataProvider : BaseDataProvider {
@@ -21,7 +22,7 @@ class NetworkDataProvider : BaseDataProvider {
             .addConverterFactory(GsonConverterFactory.create())
             .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
             .baseUrl(BASE_URL)
-            .client(OkHttpClient.Builder().build())
+            .client(OkHttpClient.Builder().addInterceptor(HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.HEADERS)).build())
             .build()
             .create(PizzaService::class.java)
 

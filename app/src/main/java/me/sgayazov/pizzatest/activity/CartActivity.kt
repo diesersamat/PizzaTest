@@ -10,6 +10,9 @@ import me.sgayazov.pizzatest.presenter.CartPresenter
 import javax.inject.Inject
 
 class CartActivity : BaseActivity() {
+    override fun inject() {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
 
     @Inject
     lateinit var presenter: CartPresenter
@@ -53,4 +56,8 @@ class CartActivity : BaseActivity() {
     fun startCheckout() {
         TODO()
     }
+}
+
+interface CartView : BaseView {
+
 }

@@ -2,7 +2,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           package="me.sgayazov.pizzatest">
 
+    <uses-permission android:name="android.permission.INTERNET"/>
+
     <application
+        android:name=".PizzaApp"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -25,10 +28,8 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="me.sgayazov.pizzatest.activity.MainActivity"/>
         </activity>
-        <activity android:name=".activity.CartActivity">
-        </activity>
-        <activity android:name=".activity.DrinksActivity">
-        </activity>
+        <activity android:name=".activity.CartActivity"/>
+        <activity android:name=".activity.DrinksActivity"/>
     </application>
 
 </manifest>

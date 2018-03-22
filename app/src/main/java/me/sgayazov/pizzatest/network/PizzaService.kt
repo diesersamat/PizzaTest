@@ -13,13 +13,13 @@ import retrofit2.http.Url
 
 interface PizzaService {
 
-    @GET("/ozt3z")
+    @GET("ozt3z")
     fun getIngredientsList(): Single<List<Ingredient>>
 
-    @GET("/150da7")
+    @GET("150da7")
     fun getDrinksList(): Single<List<Drink>>
 
-    @GET("/dokm7")
+    @GET("dokm7")
     fun getPizzasList(): Single<PizzaWrapper>
 
     @POST

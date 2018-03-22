@@ -1,22 +1,38 @@
 package me.sgayazov.pizzatest.adapter
 
+import android.content.Context
+import android.support.v7.widget.AppCompatImageView
 import android.support.v7.widget.RecyclerView
+import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
+import me.sgayazov.pizzatest.R
 import me.sgayazov.pizzatest.domain.Pizza
+import me.sgayazov.pizzatest.network.ImageLoader
+import me.sgayazov.pizzatest.utils.Utils
 
-class PizzaListAdapter : BaseAdapter<PizzaListAdapter.PizzaViewHolder, Pizza>() {
+class PizzaListAdapter(private val context: Context, private val callback: (Pizza) -> Unit)
+    : BaseAdapter<PizzaListAdapter.PizzaViewHolder, Pizza>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PizzaViewHolder {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        val view = LayoutInflater.from(context).inflate(R.layout.item_pizza, parent, false)
+        return PizzaViewHolder(view)
     }
 
     override fun onBindViewHolder(holder: PizzaViewHolder, position: Int) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        items?.get(position)?.let { pizza ->
+            ImageLoader.loadImage(context, pizza.imageUrl, holder.image)
+            holder.price.text = Utils.formatPrice(pizza.basePrice + pizza.sumOfIngredients())
+            holder.subtitle.text = pizza.ingredientsToString()
+            holder.price.setOnClickListener { callback(pizza) }
+        }
     }
 
-
     class PizzaViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-
+        val image: AppCompatImageView = view.findViewById(R.id.image)
+        val title: TextView = view.findViewById(R.id.title)
+        val subtitle: TextView = view.findViewById(R.id.subtitle)
+        val price: TextView = view.findViewById(R.id.price)
     }
 }

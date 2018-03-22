@@ -13,7 +13,27 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/app/build/generated/source/kapt/debug/me/sgayazov/pizzatest/activity/MainActivity_MembersInjector.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/build/generated/source/kapt/debug/me/sgayazov/pizzatest/di/component/DaggerAppComponent.java">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/app/src/androidTest/java/me/sgayazov/pizzatest/activity/MainActivityTest.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/me/sgayazov/pizzatest/PizzaApp.kt">
           <value>
             <set />
           </value>
@@ -98,6 +118,41 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/me/sgayazov/pizzatest/di/PerActivity.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/me/sgayazov/pizzatest/di/component/AppComponent.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/me/sgayazov/pizzatest/di/component/InteractionsComponent.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/me/sgayazov/pizzatest/di/component/MainScreenComponent.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/me/sgayazov/pizzatest/di/module/AppModule.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/me/sgayazov/pizzatest/di/module/InteractionsModule.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/me/sgayazov/pizzatest/di/module/MainScreenModule.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/app/src/main/java/me/sgayazov/pizzatest/domain/CartItem.kt">
           <value>
             <set />
@@ -168,6 +223,11 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/me/sgayazov/pizzatest/utils/Utils.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/app/src/main/res/color/white.xml">
           <value>
             <set />
@@ -189,6 +249,11 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/app/src/main/res/layout/activity_pizza.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/res/layout/added_to_cart_notification_layout.xml">
           <value>
             <set />
           </value>
@@ -268,6 +333,21 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/../mobile.android.lamoda/lamoda/src/main/java/com/lamoda/lite/datalayer/requests/RetrofitRequest.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../mobile.android.lamoda/lamoda/src/main/java/com/lamoda/lite/domain/Error.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../mobile.android.lamoda/lamoda/src/main/java/com/lamoda/lite/domain/address/AddressDetail.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/../mobile.android.lamoda/lamoda/src/main/java/com/lamoda/lite/domain/checkout/CheckoutData.kt">
           <value>
             <set />
@@ -313,6 +393,11 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/../mobile.android.lamoda/lamoda/src/main/java/com/lamoda/lite/mvp/presenter/checkout/PostAddressPresenter.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/../mobile.android.lamoda/lamoda/src/main/java/com/lamoda/lite/mvp/view/checkout/PaymentMethodsFragment.kt">
           <value>
             <set />
@@ -329,6 +414,11 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/../mobile.android.lamoda/lamoda/src/main/java/com/lamoda/lite/mvp/view/checkout/delivery/CityCheckoutFragment.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../mobile.android.lamoda/lamoda/src/main/java/com/lamoda/lite/mvp/view/checkout/delivery/DeliveryMethodsFragment.kt">
           <value>
             <set />
           </value>

@@ -4,6 +4,8 @@ apply plugin: 'kotlin-android'
 
 apply plugin: 'kotlin-android-extensions'
 
+apply plugin: 'kotlin-kapt'
+
 android {
     compileSdkVersion 27
     defaultConfig {
@@ -20,6 +22,10 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+}
+
+kapt {
+    generateStubs = true
 }
 
 dependencies {
@@ -44,6 +50,7 @@ dependencies {
     compile "com.squareup.retrofit2:converter-gson:${VERSION_RETROFIT}"
     compile 'com.google.code.gson:gson:2.8.2'
     compile "com.squareup.okhttp3:okhttp:${VERSION_OKHTTP}"
+    compile "com.squareup.okhttp3:logging-interceptor:${VERSION_OKHTTP}"
 
 //    data
     compile "io.reactivex.rxjava2:rxkotlin:${VERSION_RX}"
@@ -55,5 +62,5 @@ dependencies {
 
 //    di
     compile "com.google.dagger:dagger:${VERSION_DAGGER}"
-    annotationProcessor "com.google.dagger:dagger-compiler:${VERSION_DAGGER}"
+    kapt "com.google.dagger:dagger-compiler:${VERSION_DAGGER}"
 }

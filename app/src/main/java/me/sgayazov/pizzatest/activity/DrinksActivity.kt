@@ -8,6 +8,9 @@ import me.sgayazov.pizzatest.presenter.DrinksPresenter
 import javax.inject.Inject
 
 class DrinksActivity : BaseActivity() {
+    override fun inject() {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
 
     @Inject
     lateinit var presenter: DrinksPresenter
@@ -43,4 +46,8 @@ class DrinksActivity : BaseActivity() {
     fun showAddedToast() {
         TODO()
     }
+}
+
+interface DrinksView : BaseView {
+
 }
