@@ -13,6 +13,11 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/app/src/androidTest/java/me/sgayazov/pizzatest/activity/MainActivityTest.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/app/src/main/java/me/sgayazov/pizzatest/activity/BaseActivity.kt">
           <value>
             <set />
@@ -44,6 +49,31 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/app/src/main/java/me/sgayazov/pizzatest/activity/ScrollingActivity.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/me/sgayazov/pizzatest/adapter/BaseAdapter.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/me/sgayazov/pizzatest/adapter/CartListAdapter.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/me/sgayazov/pizzatest/adapter/DrinksListAdapter.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/me/sgayazov/pizzatest/adapter/IngredientsListAdapter.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/me/sgayazov/pizzatest/adapter/PizzaListAdapter.kt">
           <value>
             <set />
           </value>
@@ -223,7 +253,37 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/../mobile.android.lamoda/lamoda/src/main/java/com/lamoda/lite/businesslayer/ApiService.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../mobile.android.lamoda/lamoda/src/main/java/com/lamoda/lite/businesslayer/managers/NetworkManager.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../mobile.android.lamoda/lamoda/src/main/java/com/lamoda/lite/datalayer/FieldNames.java">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/../mobile.android.lamoda/lamoda/src/main/java/com/lamoda/lite/domain/checkout/CheckoutData.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../mobile.android.lamoda/lamoda/src/main/java/com/lamoda/lite/domain/checkout/PreviousDelivery.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../mobile.android.lamoda/lamoda/src/main/java/com/lamoda/lite/mvp/model/checkout/CheckoutMapCoordinator.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../mobile.android.lamoda/lamoda/src/main/java/com/lamoda/lite/mvp/model/checkout/DeliveryMethodsInteractor.kt">
           <value>
             <set />
           </value>
@@ -238,12 +298,32 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/../mobile.android.lamoda/lamoda/src/main/java/com/lamoda/lite/mvp/presenter/checkout/CourierAddressPresenter.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../mobile.android.lamoda/lamoda/src/main/java/com/lamoda/lite/mvp/presenter/checkout/DeliveryMethodsPresenter.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../mobile.android.lamoda/lamoda/src/main/java/com/lamoda/lite/mvp/presenter/checkout/PickupsDeliveryDetailsPresenter.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/../mobile.android.lamoda/lamoda/src/main/java/com/lamoda/lite/mvp/view/checkout/PaymentMethodsFragment.kt">
           <value>
             <set />
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/../mobile.android.lamoda/lamoda/src/main/java/com/lamoda/lite/mvp/view/checkout/courier/CourierAddressFragment.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../mobile.android.lamoda/lamoda/src/main/java/com/lamoda/lite/mvp/view/checkout/courier/CourierAddressView.kt">
           <value>
             <set />
           </value>
@@ -308,7 +388,22 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/../mobile.android.lamoda/lamoda/src/main/res/layout-sw600dp/fragment_checkout_courier_address.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../mobile.android.lamoda/lamoda/src/main/res/layout/fragment_checkout_courier_address.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="/fragment.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="/fragment.kt">
           <value>
             <set />
           </value>
