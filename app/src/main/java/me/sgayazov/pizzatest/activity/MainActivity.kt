@@ -1,7 +1,10 @@
 package me.sgayazov.pizzatest.activity
 
+import android.content.Intent
 import android.os.Bundle
 import android.support.v7.widget.RecyclerView
+import android.view.Menu
+import android.view.MenuItem
 import android.view.View
 import android.widget.FrameLayout
 import me.sgayazov.pizzatest.PizzaApp
@@ -10,7 +13,9 @@ import me.sgayazov.pizzatest.adapter.PizzaListAdapter
 import me.sgayazov.pizzatest.di.module.MainScreenModule
 import me.sgayazov.pizzatest.domain.Pizza
 import me.sgayazov.pizzatest.presenter.MainPresenter
+import me.sgayazov.pizzatest.utils.EXTRA_PIZZA
 import javax.inject.Inject
+
 
 class MainActivity : BaseActivity(), MainView {
 
@@ -19,7 +24,6 @@ class MainActivity : BaseActivity(), MainView {
 
     private lateinit var recyclerView: RecyclerView
     private lateinit var mainView: FrameLayout
-    private lateinit var customPizza: View
     private lateinit var progressBar: View
     private lateinit var errorView: View
     private val pizzaListAdapter = PizzaListAdapter(this, { openPizzaDetails(it) }, { addPizzaToCart(it) })
@@ -29,7 +33,7 @@ class MainActivity : BaseActivity(), MainView {
         setContentView(R.layout.activity_main)
         recyclerView = findViewById(R.id.recycler_view)
         mainView = findViewById(R.id.main_view)
-        customPizza = findViewById(R.id.floating_action_button)
+        findViewById<View>(R.id.floating_action_button).setOnClickListener { openCustomPizza() }
         progressBar = findViewById(R.id.loader)
         errorView = findViewById(R.id.error_layout)
 
@@ -42,15 +46,17 @@ class MainActivity : BaseActivity(), MainView {
     }
 
     private fun openPizzaDetails(pizza: Pizza) {
-        TODO()
+        val intent = Intent(this, PizzaDetailsActivity::class.java)
+        intent.putExtra(EXTRA_PIZZA, pizza)
+        startActivity(intent)
     }
 
-    fun openCustomPizza() {
-        TODO()
+    private fun openCustomPizza() {
+        startActivity(Intent(this, PizzaDetailsActivity::class.java))
     }
 
-    fun openCart() {
-        TODO()
+    private fun openCart() {
+        startActivity(Intent(this, CartActivity::class.java))
     }
 
     private fun addPizzaToCart(pizza: Pizza) {
@@ -84,6 +90,19 @@ class MainActivity : BaseActivity(), MainView {
 
     override fun inject() {
         (application as PizzaApp).component.plus(MainScreenModule(this)).inject(this)
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.main_menu, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem?) = when (item?.itemId) {
+        R.id.cart_item -> {
+            openCart()
+            true
+        }
+        else -> super.onOptionsItemSelected(item)
     }
 }
 
