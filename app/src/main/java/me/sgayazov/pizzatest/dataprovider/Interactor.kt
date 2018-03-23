@@ -48,21 +48,31 @@ class Interactor(private val cacheDataProvider: CacheDataProvider,
 
     fun addPizzaToCart(pizza: Pizza): Completable {
         return cacheDataProvider.addPizzaToCart(pizza)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
     }
 
     fun addDrinkToCart(drink: Drink): Completable {
         return cacheDataProvider.addDrinkToCart(drink)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
     }
 
     fun getCartItems(): Single<List<CartItem>> {
         return cacheDataProvider.getCartItems()
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
     }
 
     fun removeCartItem(cartItem: CartItem): Single<List<CartItem>> {
         return cacheDataProvider.removeCartItem(cartItem).andThen(cacheDataProvider.getCartItems())
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
     }
 
     private fun clearCart(): Completable {
         return cacheDataProvider.clearCart()
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
     }
 }

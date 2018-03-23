@@ -23,23 +23,26 @@ class CacheDataProvider @Inject constructor(application: Application) {
             AppDatabase::class.java, "pizza-db").build()
 
     fun getCartItems(): Single<List<CartItem>> {
-        db.cartDao().all
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        return Single.create(db.cartDao().all)
     }
 
     fun removeCartItem(cartItem: CartItem): Completable {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        return Completable.fromAction { db.cartDao().delete(cartItem) }
     }
 
     fun addDrinkToCart(drink: Drink): Completable {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        val cartItem = CartItem(drink.name + drink.price, drink.name, "", drink.price, false)
+        return Completable.fromAction { db.cartDao().delete(cartItem) }
     }
 
     fun addPizzaToCart(pizza: Pizza): Completable {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        val cartItem = CartItem(pizza.name + pizza.finalPrice() + pizza.ingredientsToString(),
+                pizza.name, pizza.ingredientsToString(),
+                pizza.finalPrice(), true)
+        return Completable.fromAction { db.cartDao().delete(cartItem) }
     }
 
     fun clearCart(): Completable {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        return Completable.fromAction { db.cartDao().deleteAll() }
     }
 }
