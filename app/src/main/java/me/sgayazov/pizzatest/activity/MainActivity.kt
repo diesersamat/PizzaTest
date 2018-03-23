@@ -13,6 +13,7 @@ import me.sgayazov.pizzatest.adapter.PizzaListAdapter
 import me.sgayazov.pizzatest.di.module.MainScreenModule
 import me.sgayazov.pizzatest.domain.Pizza
 import me.sgayazov.pizzatest.presenter.MainPresenter
+import me.sgayazov.pizzatest.utils.EXTRA_BASE_PRICE
 import me.sgayazov.pizzatest.utils.EXTRA_PIZZA
 import javax.inject.Inject
 
@@ -32,7 +33,7 @@ class MainActivity : BaseActivity(), MainView {
         setContentView(R.layout.activity_main)
         recyclerView = findViewById(R.id.recycler_view)
         mainView = findViewById(R.id.main_view)
-        findViewById<View>(R.id.floating_action_button).setOnClickListener { openCustomPizza() }
+        findViewById<View>(R.id.floating_action_button).setOnClickListener { presenter.openCustomPizza() }
         progressBar = findViewById(R.id.loader)
         errorView = findViewById(R.id.error_layout)
 
@@ -47,11 +48,14 @@ class MainActivity : BaseActivity(), MainView {
     private fun openPizzaDetails(pizza: Pizza) {
         val intent = Intent(this, PizzaDetailsActivity::class.java)
         intent.putExtra(EXTRA_PIZZA, pizza)
+        intent.putExtra(EXTRA_BASE_PRICE, pizza.basePrice)
         startActivity(intent)
     }
 
-    private fun openCustomPizza() {
-        startActivity(Intent(this, PizzaDetailsActivity::class.java))
+    override fun openCustomPizza(basePrice: Double) {
+        val intent = Intent(this, PizzaDetailsActivity::class.java)
+        intent.putExtra(EXTRA_BASE_PRICE, basePrice)
+        startActivity(intent)
     }
 
     private fun openCart() {
@@ -108,4 +112,5 @@ class MainActivity : BaseActivity(), MainView {
 interface MainView : BaseView {
     fun showPizzaList(data: List<Pizza>)
     fun showLoadError()
+    fun openCustomPizza(basePrice: Double)
 }

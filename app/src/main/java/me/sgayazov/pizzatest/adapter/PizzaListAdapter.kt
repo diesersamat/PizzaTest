@@ -23,7 +23,7 @@ class PizzaListAdapter(private val context: Context, private val open: (Pizza) -
     override fun onBindViewHolder(holder: PizzaViewHolder, position: Int) {
         items?.get(position)?.let { pizza ->
             pizza.imageUrl?.let { ImageLoader.loadImage(context, it, holder.image) }
-            holder.price.text = Utils.formatPrice(pizza.basePrice + pizza.sumOfIngredients())
+            holder.price.text = Utils.formatPrice(pizza.finalPrice())
             holder.subtitle.text = pizza.ingredientsToString()
             holder.title.text = pizza.name
             holder.itemView.setOnClickListener { open(pizza) }

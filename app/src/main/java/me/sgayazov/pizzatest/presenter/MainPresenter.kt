@@ -8,14 +8,27 @@ import javax.inject.Inject
 
 class MainPresenter @Inject constructor(view: MainView, interactor: Interactor) : BasePresenter<MainView>(view, interactor) {
 
+    var basePrice: Double? = null
+
     fun loadPizzaList() {
         addSubscription(interactor.getPizzasList().subscribe { result, error ->
-            result?.let { view.showPizzaList(it) }
+            result?.let {
+                if (!it.isEmpty()) {
+                    basePrice = it[0].basePrice
+                    view.showPizzaList(it)
+                } else {
+                    view.showLoadError()
+                }
+            }
             error?.let { view.showLoadError() }
         })
     }
 
     fun addPizzaToCart(pizza: Pizza) {
         TODO()
+    }
+
+    fun openCustomPizza() {
+        basePrice?.let { view.openCustomPizza(it) }
     }
 }

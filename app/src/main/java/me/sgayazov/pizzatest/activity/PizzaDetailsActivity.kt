@@ -15,6 +15,7 @@ import me.sgayazov.pizzatest.domain.Ingredient
 import me.sgayazov.pizzatest.domain.Pizza
 import me.sgayazov.pizzatest.network.ImageLoader
 import me.sgayazov.pizzatest.presenter.PizzaDetailsPresenter
+import me.sgayazov.pizzatest.utils.EXTRA_BASE_PRICE
 import me.sgayazov.pizzatest.utils.EXTRA_PIZZA
 import me.sgayazov.pizzatest.utils.Utils
 import javax.inject.Inject
@@ -55,7 +56,7 @@ class PizzaDetailsActivity : BaseActivity(), PizzaDetailsView {
 
     override fun onResume() {
         super.onResume()
-        showPizza(intent.extras?.getParcelable(EXTRA_PIZZA))
+        showPizza(intent.extras?.getParcelable(EXTRA_PIZZA), intent.extras.getDouble(EXTRA_BASE_PRICE))
         loadIngredientsList()
     }
 
@@ -64,18 +65,26 @@ class PizzaDetailsActivity : BaseActivity(), PizzaDetailsView {
         showAddedToCartSnackBar(mainView)
     }
 
-    private fun showPizza(pizza: Pizza?) {
+    private fun showPizza(pizza: Pizza?, basePrice: Double) {
         if (pizza != null) {
             pizza.imageUrl?.let { ImageLoader.loadImage(this, pizza.imageUrl, pizzaImage) }
-            totalPrice.text = Utils.formatPrice(pizza.basePrice + pizza.sumOfIngredients())
+            showPrice(pizza.finalPrice())
             supportActionBar?.title = pizza.name
             bottomButton.setOnClickListener { addPizzaToCart() }
+            presenter.pizzaLoaded(pizza)
         } else {
             pizzaImage.setImageDrawable(ContextCompat.getDrawable(this, R.mipmap.custom))
-            totalPrice.text = Utils.formatPrice()
             supportActionBar?.title = getString(R.string.custom_pizza)
             bottomButton.setOnClickListener { addPizzaToCart() }
+            val customPizza = Pizza()
+            customPizza.basePrice = basePrice
+            presenter.customPizza = customPizza
+            showPrice(customPizza.finalPrice())
         }
+    }
+
+    override fun showPrice(finalPrice: Double) {
+        totalPrice.text = Utils.formatPrice(finalPrice)
     }
 
     private fun loadIngredientsList() {
@@ -89,7 +98,7 @@ class PizzaDetailsActivity : BaseActivity(), PizzaDetailsView {
         recycler.visibility = View.GONE
     }
 
-    fun showProgress() {
+    private fun showProgress() {
         errorView.visibility = View.GONE
         progressBar.visibility = View.VISIBLE
         recycler.visibility = View.GONE
@@ -103,11 +112,12 @@ class PizzaDetailsActivity : BaseActivity(), PizzaDetailsView {
     }
 
     fun ingredientClicked(ingredient: Ingredient) {
-        TODO()
+        presenter.addOrRemoveIngredient(ingredient)
     }
 }
 
 interface PizzaDetailsView : BaseView {
     fun showIngredientsList(data: List<Ingredient>)
     fun showLoadError()
+    fun showPrice(finalPrice: Double)
 }

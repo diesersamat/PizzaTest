@@ -4,17 +4,17 @@ import android.os.Parcel
 import android.os.Parcelable
 
 class Pizza(
-        val name: String,
-        val ingredients: List<Long>,
-        val imageUrl: String?
+        val name: String = "",
+        val ingredients: List<Long> = listOf(),
+        val imageUrl: String? = "",
+        var basePrice: Double = 0.0,
+        var ingredientObjects: MutableList<Ingredient> = mutableListOf<Ingredient>()
 ) : CartItem, Parcelable {
-    var basePrice: Double = 0.0
+    fun finalPrice() = sumOfIngredients() + basePrice
 
-    var ingredientObjects = mutableListOf<Ingredient>()
-
-    fun sumOfIngredients(): Double {
-        val sumOfIngredients = 0.0
-        ingredientObjects.forEach({ ingredient -> sumOfIngredients + ingredient.price })
+    private fun sumOfIngredients(): Double {
+        var sumOfIngredients = 0.0
+        ingredientObjects.forEach({ ingredient -> sumOfIngredients += ingredient.price })
         return sumOfIngredients
     }
 
@@ -23,7 +23,9 @@ class Pizza(
     constructor(source: Parcel) : this(
             source.readString(),
             ArrayList<Long>().apply { source.readList(this, Long::class.java.classLoader) },
-            source.readString()
+            source.readString(),
+            source.readDouble(),
+            source.createTypedArrayList(Ingredient.CREATOR)
     )
 
     override fun describeContents() = 0
@@ -32,6 +34,8 @@ class Pizza(
         writeString(name)
         writeList(ingredients)
         writeString(imageUrl)
+        writeDouble(basePrice)
+        writeTypedList(ingredientObjects)
     }
 
     companion object {
