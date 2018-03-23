@@ -4,14 +4,17 @@ import android.os.Bundle
 import android.support.v7.widget.RecyclerView
 import android.view.View
 import android.widget.TextView
+import me.sgayazov.pizzatest.PizzaApp
 import me.sgayazov.pizzatest.R
+import me.sgayazov.pizzatest.di.module.CartScreenModule
 import me.sgayazov.pizzatest.domain.CartItem
 import me.sgayazov.pizzatest.presenter.CartPresenter
 import javax.inject.Inject
 
-class CartActivity : BaseActivity() {
+class CartActivity : BaseActivity(), CartView {
     override fun inject() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        (application as PizzaApp).component.plus(CartScreenModule(this)).inject(this)
+
     }
 
     @Inject

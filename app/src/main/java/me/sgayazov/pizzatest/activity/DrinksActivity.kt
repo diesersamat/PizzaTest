@@ -2,14 +2,16 @@ package me.sgayazov.pizzatest.activity
 
 import android.os.Bundle
 import android.support.v7.widget.RecyclerView
+import me.sgayazov.pizzatest.PizzaApp
 import me.sgayazov.pizzatest.R
+import me.sgayazov.pizzatest.di.module.DrinksScreenModule
 import me.sgayazov.pizzatest.domain.Drink
 import me.sgayazov.pizzatest.presenter.DrinksPresenter
 import javax.inject.Inject
 
-class DrinksActivity : BaseActivity() {
+class DrinksActivity : BaseActivity(), DrinksView {
     override fun inject() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        (application as PizzaApp).component.plus(DrinksScreenModule(this)).inject(this)
     }
 
     @Inject

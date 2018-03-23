@@ -133,7 +133,17 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/me/sgayazov/pizzatest/di/component/CartScreenComponent.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/app/src/main/java/me/sgayazov/pizzatest/di/component/DetailScreenComponent.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/me/sgayazov/pizzatest/di/component/DrinksScreenComponent.kt">
           <value>
             <set />
           </value>
@@ -153,7 +163,17 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/me/sgayazov/pizzatest/di/module/CartScreenModule.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/app/src/main/java/me/sgayazov/pizzatest/di/module/DetailScreenModule.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/me/sgayazov/pizzatest/di/module/DrinksScreenModule.kt">
           <value>
             <set />
           </value>
