@@ -11,7 +11,10 @@ import me.sgayazov.pizzatest.domain.Ingredient
 import me.sgayazov.pizzatest.utils.Utils
 
 
-class IngredientsListAdapter(private val inflater: LayoutInflater) : BaseAdapter<IngredientsListAdapter.IngredientsViewHolder, Ingredient>() {
+class IngredientsListAdapter(private val inflater: LayoutInflater,
+                             private val listener: (Ingredient) -> Unit) : BaseAdapter<IngredientsListAdapter.IngredientsViewHolder, Ingredient>() {
+
+    lateinit var selectedIngredients: MutableList<Long>
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): IngredientsViewHolder {
         val view = inflater.inflate(R.layout.item_ingredient, parent, false)
@@ -19,11 +22,22 @@ class IngredientsListAdapter(private val inflater: LayoutInflater) : BaseAdapter
     }
 
     override fun onBindViewHolder(holder: IngredientsViewHolder, position: Int) {
-        items?.get(position)?.let {
-            holder.title.text = it.name
-            holder.price.text = Utils.formatPrice(it.price)
+        items?.get(position)?.let { ingredient ->
+            holder.title.text = ingredient.name
+            holder.price.text = Utils.formatPrice(ingredient.price)
+            holder.checkBox.isChecked = selectedIngredients.contains(ingredient.id)
+            val onClickListener: (View) -> Unit = {
+                if (selectedIngredients.contains(ingredient.id)) {
+                    selectedIngredients.remove(ingredient.id)
+                } else {
+                    selectedIngredients.add(ingredient.id)
+                }
+                listener(ingredient)
+                notifyItemChanged(position)
+            }
+            holder.itemView.setOnClickListener(onClickListener)
+            holder.checkBox.setOnClickListener(onClickListener)
         }
-//        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
 

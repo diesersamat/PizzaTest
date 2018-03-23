@@ -49,7 +49,7 @@ class PizzaDetailsActivity : BaseActivity(), PizzaDetailsView {
         mainView = findViewById(R.id.main_view)
         progressBar = findViewById(R.id.loader)
         errorView = findViewById(R.id.error_layout)
-        ingredientsListAdapter = IngredientsListAdapter(layoutInflater)
+        ingredientsListAdapter = IngredientsListAdapter(layoutInflater, { ingredientClicked(it) })
         recycler.isNestedScrollingEnabled = false
         recycler.adapter = ingredientsListAdapter
     }
@@ -72,6 +72,7 @@ class PizzaDetailsActivity : BaseActivity(), PizzaDetailsView {
             supportActionBar?.title = pizza.name
             bottomButton.setOnClickListener { addPizzaToCart() }
             presenter.pizzaLoaded(pizza)
+            ingredientsListAdapter.selectedIngredients = pizza.ingredients
         } else {
             pizzaImage.setImageDrawable(ContextCompat.getDrawable(this, R.mipmap.custom))
             supportActionBar?.title = getString(R.string.custom_pizza)
@@ -80,6 +81,7 @@ class PizzaDetailsActivity : BaseActivity(), PizzaDetailsView {
             customPizza.basePrice = basePrice
             presenter.customPizza = customPizza
             showPrice(customPizza.finalPrice())
+            ingredientsListAdapter.selectedIngredients = customPizza.ingredients
         }
     }
 
@@ -111,7 +113,7 @@ class PizzaDetailsActivity : BaseActivity(), PizzaDetailsView {
         recycler.visibility = View.VISIBLE
     }
 
-    fun ingredientClicked(ingredient: Ingredient) {
+    private fun ingredientClicked(ingredient: Ingredient) {
         presenter.addOrRemoveIngredient(ingredient)
     }
 }

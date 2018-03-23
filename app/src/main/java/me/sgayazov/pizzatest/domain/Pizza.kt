@@ -5,7 +5,7 @@ import android.os.Parcelable
 
 class Pizza(
         val name: String = "",
-        val ingredients: List<Long> = listOf(),
+        val ingredients: MutableList<Long> = mutableListOf(),
         val imageUrl: String? = "",
         var basePrice: Double = 0.0,
         var ingredientObjects: MutableList<Ingredient> = mutableListOf<Ingredient>()
