@@ -18,7 +18,7 @@ class Interactor(private val cacheDataProvider: CacheDataProvider,
                 pizza.ingredientObjects = mutableListOf()
                 pizza.basePrice = pizzaWrapper.basePrice
                 pizza.ingredients.forEach({ ingredientId ->
-                    ingredientsList.find { ingredient -> ingredient.id == ingredientId }?.let { pizza.ingredientObjects.add(it) }
+                    ingredientsList.find { it.id == ingredientId }?.let { pizza.ingredientObjects.add(it) }
                 })
             })
             return@BiFunction pizzaList
@@ -41,6 +41,7 @@ class Interactor(private val cacheDataProvider: CacheDataProvider,
 
     fun makeOrder(): Single<Any> {
         return getCartItems().flatMap { networkDataProvider.makeOrder(it) }
+                .flatMap { clearCart().andThen(Single.just(it)) }
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
     }
@@ -48,7 +49,6 @@ class Interactor(private val cacheDataProvider: CacheDataProvider,
     fun addPizzaToCart(pizza: Pizza): Completable {
         return cacheDataProvider.addPizzaToCart(pizza)
     }
-
 
     fun addDrinkToCart(drink: Drink): Completable {
         return cacheDataProvider.addDrinkToCart(drink)
@@ -60,5 +60,9 @@ class Interactor(private val cacheDataProvider: CacheDataProvider,
 
     fun removeCartItem(cartItem: CartItem): Single<List<CartItem>> {
         return cacheDataProvider.removeCartItem(cartItem).andThen(cacheDataProvider.getCartItems())
+    }
+
+    private fun clearCart(): Completable {
+        return cacheDataProvider.clearCart()
     }
 }

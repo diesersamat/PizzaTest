@@ -20,7 +20,7 @@ class CartListAdapter(private val inflater: LayoutInflater,
     override fun onBindViewHolder(holder: CartViewHolder, position: Int) {
         items?.get(position)?.let { cartItem ->
             holder.title.text = cartItem.name
-            holder.price.text = Utils.formatPrice(cartItem.finalPrice())
+            holder.price.text = Utils.formatPrice(cartItem.price)
             holder.delete.setOnClickListener { callback(cartItem) }
         }
     }

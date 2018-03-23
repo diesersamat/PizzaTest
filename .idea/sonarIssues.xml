@@ -18,12 +18,27 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/app/build/generated/source/kapt/debug/me/sgayazov/pizzatest/dataprovider/CacheDataProvider_AppDatabase_Impl.java">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/app/build/generated/source/kapt/debug/me/sgayazov/pizzatest/di/component/DaggerAppComponent.java">
           <value>
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/app/build/tmp/kapt3/stubs/debug/me/sgayazov/pizzatest/dataprovider/CacheDataProvider.java">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/app/build/tmp/kapt3/stubs/debug/me/sgayazov/pizzatest/di/component/DetailScreenComponent.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/build/tmp/kapt3/stubs/debug/me/sgayazov/pizzatest/domain/CartItem.java">
           <value>
             <set />
           </value>

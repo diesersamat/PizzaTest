@@ -42,13 +42,13 @@ class NetworkDataProvider {
         orderMap["drinks"] = mutableListOf()
         orderMap["pizzas"] = mutableListOf()
         cartItemList.forEach({ cartItem ->
-            if (cartItem is Drink) {
+            if (!cartItem.isPizza) {
                 orderMap["drinks"]?.add(cartItem)
-
-            } else if (cartItem is PizzaService) {
+            } else {
                 orderMap["pizzas"]?.add(cartItem)
             }
         })
+        TODO()
         return apiService.createOrder(ORDER_URL, orderMap)
     }
 }
