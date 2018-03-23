@@ -18,4 +18,11 @@ class CartPresenter(view: CartView, interactor: Interactor) : BasePresenter<Cart
             TODO()
         })
     }
+
+    fun startCheckout() {
+        addSubscription(interactor.makeOrder().subscribe {
+            view.showSuccess()
+            TODO()
+        })
+    }
 }

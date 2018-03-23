@@ -16,29 +16,35 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
 
-    <TextView
-        android:visibility="gone"
-        android:id="@+id/checkout_success_view"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_above="@+id/bottom_button"
-        android:layout_gravity="center"
-        android:gravity="center"
-        android:padding="16dp"
-        android:text="@string/thank_you_for_your_order"
-        android:textColor="@color/colorAccent"
-        android:textSize="46sp"
-        android:textStyle="italic"/>
-
-    <TextView
+    <LinearLayout
         android:id="@+id/bottom_button"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_alignParentBottom="true"
-        android:background="@color/colorAccent"
+        android:background="@color/colorYellow"
         android:gravity="center"
-        android:textColor="@color/white"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        tools:text="Back to home"/>
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableLeft="@mipmap/cart_small"
+            android:drawablePadding="6dp"
+            android:drawableStart="@mipmap/cart_small"
+            android:text="@string/add_to_cart"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:id="@+id/total_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginStart="10dp"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:textStyle="italic"
+            tools:text="($10)"/>
+    </LinearLayout>
 </RelativeLayout>

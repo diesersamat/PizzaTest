@@ -6,7 +6,6 @@ import android.support.v7.widget.RecyclerView
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
-import android.widget.TextView
 import me.sgayazov.pizzatest.PizzaApp
 import me.sgayazov.pizzatest.R
 import me.sgayazov.pizzatest.adapter.CartListAdapter
@@ -16,6 +15,7 @@ import me.sgayazov.pizzatest.presenter.CartPresenter
 import javax.inject.Inject
 
 class CartActivity : BaseActivity(), CartView {
+
     override fun inject() {
         (application as PizzaApp).component.plus(CartScreenModule(this)).inject(this)
 
@@ -27,8 +27,6 @@ class CartActivity : BaseActivity(), CartView {
     private lateinit var cartListAdapter: CartListAdapter
 
     private lateinit var recycler: RecyclerView
-    private lateinit var checkoutSuccessView: View
-    private lateinit var bottomButton: TextView
     private lateinit var progressBar: View
     private lateinit var errorView: View
 
@@ -36,8 +34,7 @@ class CartActivity : BaseActivity(), CartView {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_cart)
         recycler = findViewById(R.id.cart_recycler)
-        checkoutSuccessView = findViewById(R.id.checkout_success_view)
-        bottomButton = findViewById(R.id.bottom_button)
+        findViewById<View>(R.id.bottom_button).setOnClickListener { startCheckout() }
         progressBar = findViewById(R.id.loader)
         errorView = findViewById(R.id.error_layout)
 
@@ -82,8 +79,14 @@ class CartActivity : BaseActivity(), CartView {
         presenter.removeCartItem(cartItem)
     }
 
-    fun startCheckout() {
-        TODO()
+    private fun startCheckout() {
+        showProgress()
+        presenter.startCheckout()
+    }
+
+    override fun showSuccess() {
+        finish()
+        startActivity(Intent(this, SuccessActivity::class.java))
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -103,4 +106,5 @@ class CartActivity : BaseActivity(), CartView {
 interface CartView : BaseView {
     fun showCartItemsList(data: List<CartItem>)
     fun showLoadError()
+    fun showSuccess()
 }

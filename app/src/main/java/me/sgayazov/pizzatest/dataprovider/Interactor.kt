@@ -46,12 +46,12 @@ class Interactor(private val cacheDataProvider: CacheDataProvider,
     }
 
     fun addPizzaToCart(pizza: Pizza): Completable {
-
+        return cacheDataProvider.addPizzaToCart(pizza)
     }
 
 
     fun addDrinkToCart(drink: Drink): Completable {
-
+        return cacheDataProvider.addDrinkToCart(drink)
     }
 
     fun getCartItems(): Single<List<CartItem>> {
@@ -59,6 +59,6 @@ class Interactor(private val cacheDataProvider: CacheDataProvider,
     }
 
     fun removeCartItem(cartItem: CartItem): Completable {
-        return cacheDataProvider.getCartItems()
+        return cacheDataProvider.removeCartItem(cartItem)
     }
 }
