@@ -11,11 +11,6 @@ class Interactor(private val cacheDataProvider: CacheDataProvider,
                  private val networkDataProvider: NetworkDataProvider) {
 
     fun getPizzasList(): Single<List<Pizza>> {
-//        return Observable.zip(networkDataProvider.getPizzasList(),
-//                getIngredientsList(), )
-//                .subscribeOn(Schedulers.io())
-//                .observeOn(AndroidSchedulers.mainThread())
-
         return Single.zip<PizzaWrapper, List<Ingredient>, List<Pizza>>(networkDataProvider.getPizzasList(),
                 networkDataProvider.getIngredientsList(), BiFunction { pizzaWrapper, ingredientsList ->
             val pizzaList = pizzaWrapper.pizzas
@@ -44,9 +39,26 @@ class Interactor(private val cacheDataProvider: CacheDataProvider,
                 .observeOn(AndroidSchedulers.mainThread())
     }
 
-    fun makeOrder(cartItems: List<CartItem>): Completable {
-        return networkDataProvider.makeOrder(cartItems)
+    fun makeOrder(): Completable {
+        return getCartItems().flatMapCompletable { networkDataProvider.makeOrder(it) }
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
+    }
+
+    fun addPizzaToCart(pizza: Pizza): Completable {
+
+    }
+
+
+    fun addDrinkToCart(drink: Drink): Completable {
+
+    }
+
+    fun getCartItems(): Single<List<CartItem>> {
+        return cacheDataProvider.getCartItems()
+    }
+
+    fun removeCartItem(cartItem: CartItem): Completable {
+        return cacheDataProvider.getCartItems()
     }
 }

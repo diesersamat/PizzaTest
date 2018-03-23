@@ -2,8 +2,8 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
       xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
-        android:id="@+id/cart_item"
-        android:icon="@mipmap/cart"
-        android:title="@string/cart"
+        android:id="@+id/drink_item"
+        android:icon="@mipmap/drinks"
+        android:title="@string/drinks"
         app:showAsAction="ifRoom"/>
 </menu>

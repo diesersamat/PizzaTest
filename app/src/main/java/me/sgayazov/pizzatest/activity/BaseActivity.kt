@@ -8,7 +8,6 @@ import android.view.ViewGroup
 import android.widget.TextView
 import me.sgayazov.pizzatest.R
 
-
 abstract class BaseActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -30,6 +29,4 @@ abstract class BaseActivity : AppCompatActivity() {
     abstract fun inject()
 }
 
-interface BaseView {
-
-}
+interface BaseView

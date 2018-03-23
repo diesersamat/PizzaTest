@@ -25,7 +25,7 @@ class MainPresenter @Inject constructor(view: MainView, interactor: Interactor) 
     }
 
     fun addPizzaToCart(pizza: Pizza) {
-        TODO()
+        addSubscription(interactor.addPizzaToCart(pizza).subscribe())
     }
 
     fun openCustomPizza() {

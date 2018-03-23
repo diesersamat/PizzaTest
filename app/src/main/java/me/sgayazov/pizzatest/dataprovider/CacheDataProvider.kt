@@ -23,4 +23,8 @@ class CacheDataProvider: BaseDataProvider {
     override fun getIngredientsList(): Single<List<Ingredient>> {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
+
+    fun getCartItems(): Single<List<CartItem>> {
+
+    }
 }

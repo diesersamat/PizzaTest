@@ -99,4 +99,6 @@
     <string name="plus">+</string>
     <string name="added_to_cart">Added to cart</string>
     <string name="custom_pizza">Custom pizza</string>
+    <string name="cart">Cart</string>
+    <string name="drinks">Drinks</string>
 </resources>

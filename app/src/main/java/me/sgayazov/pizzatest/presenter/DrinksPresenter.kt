@@ -14,7 +14,8 @@ class DrinksPresenter(view: DrinksView, interactor: Interactor) : BasePresenter<
     }
 
     fun addDrinkToCart(drink: Drink) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        addSubscription(interactor.addDrinkToCart(drink).subscribe {
+            view.showAddedNotification()
+        })
     }
-
 }

@@ -13,6 +13,7 @@ import me.sgayazov.pizzatest.presenter.DrinksPresenter
 import javax.inject.Inject
 
 class DrinksActivity : BaseActivity(), DrinksView {
+
     override fun inject() {
         (application as PizzaApp).component.plus(DrinksScreenModule(this)).inject(this)
     }
@@ -70,6 +71,9 @@ class DrinksActivity : BaseActivity(), DrinksView {
 
     private fun addDrinkToCart(drink: Drink) {
         presenter.addDrinkToCart(drink)
+    }
+
+    override fun showAddedNotification() {
         showAddedToCartSnackBar(mainView)
     }
 }
@@ -77,4 +81,5 @@ class DrinksActivity : BaseActivity(), DrinksView {
 interface DrinksView : BaseView {
     fun showDrinksList(data: List<Drink>)
     fun showLoadError()
+    fun showAddedNotification()
 }

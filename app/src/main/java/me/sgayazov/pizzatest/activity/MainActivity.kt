@@ -59,7 +59,7 @@ class MainActivity : BaseActivity(), MainView {
     }
 
     private fun openCart() {
-        startActivity(Intent(this, DrinksActivity::class.java))
+        startActivity(Intent(this, CartActivity::class.java))
     }
 
     private fun addPizzaToCart(pizza: Pizza) {

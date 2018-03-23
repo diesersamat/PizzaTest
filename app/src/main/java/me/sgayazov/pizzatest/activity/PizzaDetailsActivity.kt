@@ -116,10 +116,15 @@ class PizzaDetailsActivity : BaseActivity(), PizzaDetailsView {
     private fun ingredientClicked(ingredient: Ingredient) {
         presenter.addOrRemoveIngredient(ingredient)
     }
+
+    override fun closeActivity() {
+        finish()
+    }
 }
 
 interface PizzaDetailsView : BaseView {
     fun showIngredientsList(data: List<Ingredient>)
     fun showLoadError()
     fun showPrice(finalPrice: Double)
+    fun closeActivity()
 }

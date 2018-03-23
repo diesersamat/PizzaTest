@@ -11,7 +11,13 @@
         android:layout_height="match_parent"
         android:layout_above="@+id/bottom_button"/>
 
+    <include
+        layout="@layout/loader_error_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
     <TextView
+        android:visibility="gone"
         android:id="@+id/checkout_success_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"

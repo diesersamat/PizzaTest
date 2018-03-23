@@ -1,11 +1,15 @@
 package me.sgayazov.pizzatest.activity
 
+import android.content.Intent
 import android.os.Bundle
 import android.support.v7.widget.RecyclerView
+import android.view.Menu
+import android.view.MenuItem
 import android.view.View
 import android.widget.TextView
 import me.sgayazov.pizzatest.PizzaApp
 import me.sgayazov.pizzatest.R
+import me.sgayazov.pizzatest.adapter.CartListAdapter
 import me.sgayazov.pizzatest.di.module.CartScreenModule
 import me.sgayazov.pizzatest.domain.CartItem
 import me.sgayazov.pizzatest.presenter.CartPresenter
@@ -20,9 +24,13 @@ class CartActivity : BaseActivity(), CartView {
     @Inject
     lateinit var presenter: CartPresenter
 
+    private lateinit var cartListAdapter: CartListAdapter
+
     private lateinit var recycler: RecyclerView
     private lateinit var checkoutSuccessView: View
     private lateinit var bottomButton: TextView
+    private lateinit var progressBar: View
+    private lateinit var errorView: View
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,37 +38,69 @@ class CartActivity : BaseActivity(), CartView {
         recycler = findViewById(R.id.cart_recycler)
         checkoutSuccessView = findViewById(R.id.checkout_success_view)
         bottomButton = findViewById(R.id.bottom_button)
+        progressBar = findViewById(R.id.loader)
+        errorView = findViewById(R.id.error_layout)
+
+        cartListAdapter = CartListAdapter(layoutInflater, { removeCartItem(it) })
+        recycler.adapter = cartListAdapter
     }
 
-    fun openDrinks() {
-        TODO()
+    override fun onResume() {
+        super.onResume()
+        loadCartItemsList()
     }
 
-    fun loadCartItemsList() {
-        TODO()
+    private fun openDrinks() {
+        startActivity(Intent(this, DrinksActivity::class.java))
     }
 
-    fun showLoadError() {
-        TODO()
+    private fun loadCartItemsList() {
+        showProgress()
+        presenter.loadCartItemsList()
     }
 
-    fun showProgress() {
-        TODO()
+    override fun showLoadError() {
+        errorView.visibility = View.VISIBLE
+        progressBar.visibility = View.GONE
+        recycler.visibility = View.GONE
     }
 
-    fun showCartItemsList(data: List<CartItem>) {
-        TODO()
+    private fun showProgress() {
+        errorView.visibility = View.GONE
+        progressBar.visibility = View.VISIBLE
+        recycler.visibility = View.GONE
     }
 
-    fun removeCartItem(cartItem: CartItem) {
-        TODO()
+    override fun showCartItemsList(data: List<CartItem>) {
+        cartListAdapter.items = data
+        errorView.visibility = View.GONE
+        progressBar.visibility = View.GONE
+        recycler.visibility = View.VISIBLE
+    }
+
+    private fun removeCartItem(cartItem: CartItem) {
+        presenter.removeCartItem(cartItem)
     }
 
     fun startCheckout() {
         TODO()
     }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.cart_menu, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem?) = when (item?.itemId) {
+        R.id.drink_item -> {
+            openDrinks()
+            true
+        }
+        else -> super.onOptionsItemSelected(item)
+    }
 }
 
 interface CartView : BaseView {
-
+    fun showCartItemsList(data: List<CartItem>)
+    fun showLoadError()
 }

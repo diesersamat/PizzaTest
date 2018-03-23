@@ -10,7 +10,9 @@ class PizzaDetailsPresenter(view: PizzaDetailsView, interactor: Interactor) : Ba
     lateinit var customPizza: Pizza
 
     fun addPizzaToCart() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        addSubscription(interactor.addPizzaToCart(customPizza).subscribe {
+            view.closeActivity()
+        })
     }
 
     fun loadIngredientsList() {
