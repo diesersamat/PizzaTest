@@ -233,6 +233,11 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/res/drawable/button_bg.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/app/src/main/res/layout/activity_cart.xml">
           <value>
             <set />
@@ -333,6 +338,11 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/../mobile.android.lamoda/lamoda/src/main/java/com/lamoda/lite/datalayer/MethodNames.java">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/../mobile.android.lamoda/lamoda/src/main/java/com/lamoda/lite/datalayer/requests/RetrofitRequest.kt">
           <value>
             <set />
@@ -344,6 +354,11 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/../mobile.android.lamoda/lamoda/src/main/java/com/lamoda/lite/domain/address/AddressDetail.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../mobile.android.lamoda/lamoda/src/main/java/com/lamoda/lite/domain/checkout/Cart.kt">
           <value>
             <set />
           </value>
@@ -474,6 +489,11 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/../mobile.android.lamoda/lamoda/src/main/java/com/lamoda/lite/presentationlayer/factories/MarketplacePackageHolderFactory.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../mobile.android.lamoda/lamoda/src/main/java/com/lamoda/lite/presentationlayer/widgets/DiscountLayoutBuilder.java">
           <value>
             <set />
           </value>

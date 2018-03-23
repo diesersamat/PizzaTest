@@ -22,6 +22,7 @@ abstract class BaseActivity : AppCompatActivity() {
         val textView = layout.findViewById<View>(android.support.design.R.id.snackbar_text) as TextView
         textView.visibility = View.INVISIBLE
         val snackView = layoutInflater.inflate(R.layout.added_to_cart_notification_layout, containerLayout, false)
+        layout.setPadding(0, layout.paddingTop, 0, layout.paddingBottom)
         layout.addView(snackView, 0)
         snackBar.show()
     }

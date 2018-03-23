@@ -6,6 +6,7 @@ abstract class BaseAdapter<VH : RecyclerView.ViewHolder, T> : RecyclerView.Adapt
 
     var items: List<T>? = null
         set(value) {
+            field = value
             notifyDataSetChanged()
         }
 

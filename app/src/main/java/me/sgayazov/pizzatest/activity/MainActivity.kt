@@ -22,7 +22,7 @@ class MainActivity : BaseActivity(), MainView {
     private lateinit var customPizza: View
     private lateinit var progressBar: View
     private lateinit var errorView: View
-    private val pizzaListAdapter = PizzaListAdapter(this, { openPizzaDetails(it) })
+    private val pizzaListAdapter = PizzaListAdapter(this, { openPizzaDetails(it) }, { addPizzaToCart(it) })
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -53,7 +53,7 @@ class MainActivity : BaseActivity(), MainView {
         TODO()
     }
 
-    fun addPizzaToCart(pizza: Pizza) {
+    private fun addPizzaToCart(pizza: Pizza) {
         presenter.addPizzaToCart(pizza)
         showAddedToCartSnackBar(mainView)
     }

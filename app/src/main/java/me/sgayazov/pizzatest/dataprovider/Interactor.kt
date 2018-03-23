@@ -3,11 +3,9 @@ package me.sgayazov.pizzatest.dataprovider
 import io.reactivex.Completable
 import io.reactivex.Single
 import io.reactivex.android.schedulers.AndroidSchedulers
+import io.reactivex.functions.BiFunction
 import io.reactivex.schedulers.Schedulers
-import me.sgayazov.pizzatest.domain.CartItem
-import me.sgayazov.pizzatest.domain.Drink
-import me.sgayazov.pizzatest.domain.Ingredient
-import me.sgayazov.pizzatest.domain.Pizza
+import me.sgayazov.pizzatest.domain.*
 
 class Interactor(private val cacheDataProvider: CacheDataProvider,
                  private val networkDataProvider: NetworkDataProvider) {
@@ -18,15 +16,20 @@ class Interactor(private val cacheDataProvider: CacheDataProvider,
 //                .subscribeOn(Schedulers.io())
 //                .observeOn(AndroidSchedulers.mainThread())
 
-        networkDataProvider.getPizzasList()
+        return Single.zip<PizzaWrapper, List<Ingredient>, List<Pizza>>(networkDataProvider.getPizzasList(),
+                networkDataProvider.getIngredientsList(), BiFunction { pizzaWrapper, ingredientsList ->
+            val pizzaList = pizzaWrapper.pizzas
+            pizzaList.forEach({ pizza ->
+                pizza.ingredientObjects = mutableListOf()
+                pizza.basePrice = pizzaWrapper.basePrice
+                pizza.ingredients.forEach({ ingredientId ->
+                    ingredientsList.find { ingredient -> ingredient.id == ingredientId }?.let { pizza.ingredientObjects.add(it) }
+                })
+            })
+            return@BiFunction pizzaList
+        })
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe { t1, t2 ->
-                    var i = 0
-                    i++
-                }
-
-        return Single.just(listOf())
     }
 
     fun getIngredientsList(): Single<List<Ingredient>> {

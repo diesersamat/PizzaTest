@@ -12,7 +12,7 @@ import me.sgayazov.pizzatest.domain.Pizza
 import me.sgayazov.pizzatest.network.ImageLoader
 import me.sgayazov.pizzatest.utils.Utils
 
-class PizzaListAdapter(private val context: Context, private val callback: (Pizza) -> Unit)
+class PizzaListAdapter(private val context: Context, private val open: (Pizza) -> Unit, private val buy: (Pizza) -> Unit)
     : BaseAdapter<PizzaListAdapter.PizzaViewHolder, Pizza>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PizzaViewHolder {
@@ -22,10 +22,12 @@ class PizzaListAdapter(private val context: Context, private val callback: (Pizz
 
     override fun onBindViewHolder(holder: PizzaViewHolder, position: Int) {
         items?.get(position)?.let { pizza ->
-            ImageLoader.loadImage(context, pizza.imageUrl, holder.image)
+            pizza.imageUrl?.let { ImageLoader.loadImage(context, it, holder.image) }
             holder.price.text = Utils.formatPrice(pizza.basePrice + pizza.sumOfIngredients())
             holder.subtitle.text = pizza.ingredientsToString()
-            holder.price.setOnClickListener { callback(pizza) }
+            holder.title.text = pizza.name
+            holder.itemView.setOnClickListener { open(pizza) }
+            holder.price.setOnClickListener { buy(pizza) }
         }
     }
 
