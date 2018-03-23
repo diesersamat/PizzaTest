@@ -63,4 +63,8 @@ dependencies {
 //    di
     compile "com.google.dagger:dagger:${VERSION_DAGGER}"
     kapt "com.google.dagger:dagger-compiler:${VERSION_DAGGER}"
+
+//    persistence
+    implementation "android.arch.persistence.room:runtime:1.0.0"
+    kapt "android.arch.persistence.room:compiler:1.0.0"
 }

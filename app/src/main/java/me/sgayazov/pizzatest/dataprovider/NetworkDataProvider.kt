@@ -1,6 +1,5 @@
 package me.sgayazov.pizzatest.dataprovider
 
-import io.reactivex.Completable
 import io.reactivex.Single
 import me.sgayazov.pizzatest.domain.CartItem
 import me.sgayazov.pizzatest.domain.Drink
@@ -16,7 +15,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 private const val BASE_URL = "https://api.myjson.com/bins/"
 private const val ORDER_URL = "http://httpbin.org/post"
 
-class NetworkDataProvider : BaseDataProvider {
+class NetworkDataProvider {
 
     private var apiService: PizzaService = Retrofit.Builder()
             .addConverterFactory(GsonConverterFactory.create())
@@ -26,19 +25,19 @@ class NetworkDataProvider : BaseDataProvider {
             .build()
             .create(PizzaService::class.java)
 
-    override fun getPizzasList(): Single<PizzaWrapper> {
+    fun getPizzasList(): Single<PizzaWrapper> {
         return apiService.getPizzasList()
     }
 
-    override fun getDrinksList(): Single<List<Drink>> {
+    fun getDrinksList(): Single<List<Drink>> {
         return apiService.getDrinksList()
     }
 
-    override fun getIngredientsList(): Single<List<Ingredient>> {
+    fun getIngredientsList(): Single<List<Ingredient>> {
         return apiService.getIngredientsList()
     }
 
-    override fun makeOrder(cartItemList: List<CartItem>): Completable {
+    fun makeOrder(cartItemList: List<CartItem>): Single<Any> {
         val orderMap: HashMap<String, MutableList<Any>> = HashMap()
         orderMap["drinks"] = mutableListOf()
         orderMap["pizzas"] = mutableListOf()

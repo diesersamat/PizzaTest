@@ -23,5 +23,5 @@ interface PizzaService {
     fun getPizzasList(): Single<PizzaWrapper>
 
     @POST
-    fun createOrder(@Url url: String, @Body order: HashMap<String, MutableList<Any>>): Completable
+    fun createOrder(@Url url: String, @Body order: HashMap<String, MutableList<Any>>): Single<Any>
 }

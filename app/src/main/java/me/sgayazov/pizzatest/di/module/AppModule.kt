@@ -1,5 +1,6 @@
 package me.sgayazov.pizzatest.di.module
 
+import android.app.Application
 import dagger.Module
 import dagger.Provides
 import me.sgayazov.pizzatest.PizzaApp
@@ -12,7 +13,7 @@ import javax.inject.Singleton
 class AppModule(val app: PizzaApp) {
     @Provides
     @Singleton
-    fun provideApp() = app
+    fun provideApp(): Application = app
 
     @Provides
     @Singleton
@@ -21,7 +22,7 @@ class AppModule(val app: PizzaApp) {
 
     @Provides
     @Singleton
-    fun provideCacheDataProvider() = CacheDataProvider()
+    fun provideCacheDataProvider(app: Application) = CacheDataProvider(app)
 
     @Provides
     @Singleton

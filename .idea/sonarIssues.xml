@@ -28,6 +28,16 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/app/build/tmp/kapt3/stubs/debug/me/sgayazov/pizzatest/domain/Order.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/build/tmp/kapt3/stubs/debug/me/sgayazov/pizzatest/persistence/CartDao.java">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/app/src/androidTest/java/me/sgayazov/pizzatest/activity/MainActivityTest.kt">
           <value>
             <set />
@@ -234,6 +244,11 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/app/src/main/java/me/sgayazov/pizzatest/network/PizzaService.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/me/sgayazov/pizzatest/persistence/CartDao.kt">
           <value>
             <set />
           </value>

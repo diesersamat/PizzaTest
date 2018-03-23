@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import me.sgayazov.pizzatest.R
 import me.sgayazov.pizzatest.domain.CartItem
+import me.sgayazov.pizzatest.utils.Utils
 
 
 class CartListAdapter(private val inflater: LayoutInflater,
@@ -19,7 +20,7 @@ class CartListAdapter(private val inflater: LayoutInflater,
     override fun onBindViewHolder(holder: CartViewHolder, position: Int) {
         items?.get(position)?.let { cartItem ->
             holder.title.text = cartItem.name
-            holder.price.text = cartItem.price
+            holder.price.text = Utils.formatPrice(cartItem.finalPrice())
             holder.delete.setOnClickListener { callback(cartItem) }
         }
     }

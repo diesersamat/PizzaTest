@@ -1,16 +1,18 @@
 package me.sgayazov.pizzatest.domain
 
+import android.arch.persistence.room.Entity
 import android.os.Parcel
 import android.os.Parcelable
 
+@Entity
 class Pizza(
-        val name: String = "",
+        override val name: String = "",
         val ingredients: MutableList<Long> = mutableListOf(),
         val imageUrl: String? = "",
         var basePrice: Double = 0.0,
         var ingredientObjects: MutableList<Ingredient> = mutableListOf<Ingredient>()
 ) : CartItem, Parcelable {
-    fun finalPrice() = sumOfIngredients() + basePrice
+    override fun finalPrice() = sumOfIngredients() + basePrice
 
     private fun sumOfIngredients(): Double {
         var sumOfIngredients = 0.0

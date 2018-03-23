@@ -9,20 +9,21 @@ class CartPresenter(view: CartView, interactor: Interactor) : BasePresenter<Cart
     fun loadCartItemsList() {
         addSubscription(interactor.getCartItems().subscribe { result, error ->
             result?.let { view.showCartItemsList(it) }
-            error?.let { view.showLoadError() }
+            error?.let { view.showLoadError({ loadCartItemsList() }) }
         })
     }
 
     fun removeCartItem(cartItem: CartItem) {
-        addSubscription(interactor.removeCartItem(cartItem).subscribe {
-            TODO()
+        addSubscription(interactor.removeCartItem(cartItem).subscribe { result, error ->
+            result?.let { view.showCartItemsList(it) }
+            error?.let { view.showLoadError({ removeCartItem(cartItem) }) }
         })
     }
 
     fun startCheckout() {
-        addSubscription(interactor.makeOrder().subscribe {
-            view.showSuccess()
-            TODO()
+        addSubscription(interactor.makeOrder().subscribe { result, error ->
+            result?.let { view.showSuccess() }
+            error?.let { view.showLoadError({ startCheckout() }) }
         })
     }
 }

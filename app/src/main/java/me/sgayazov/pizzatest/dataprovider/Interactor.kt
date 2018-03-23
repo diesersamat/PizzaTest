@@ -39,8 +39,8 @@ class Interactor(private val cacheDataProvider: CacheDataProvider,
                 .observeOn(AndroidSchedulers.mainThread())
     }
 
-    fun makeOrder(): Completable {
-        return getCartItems().flatMapCompletable { networkDataProvider.makeOrder(it) }
+    fun makeOrder(): Single<Any> {
+        return getCartItems().flatMap { networkDataProvider.makeOrder(it) }
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
     }
@@ -58,7 +58,7 @@ class Interactor(private val cacheDataProvider: CacheDataProvider,
         return cacheDataProvider.getCartItems()
     }
 
-    fun removeCartItem(cartItem: CartItem): Completable {
-        return cacheDataProvider.removeCartItem(cartItem)
+    fun removeCartItem(cartItem: CartItem): Single<List<CartItem>> {
+        return cacheDataProvider.removeCartItem(cartItem).andThen(cacheDataProvider.getCartItems())
     }
 }

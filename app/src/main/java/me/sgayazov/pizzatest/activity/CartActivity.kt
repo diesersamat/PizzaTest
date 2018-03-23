@@ -29,6 +29,7 @@ class CartActivity : BaseActivity(), CartView {
     private lateinit var recycler: RecyclerView
     private lateinit var progressBar: View
     private lateinit var errorView: View
+    private lateinit var retryButton: View
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -37,6 +38,7 @@ class CartActivity : BaseActivity(), CartView {
         findViewById<View>(R.id.bottom_button).setOnClickListener { startCheckout() }
         progressBar = findViewById(R.id.loader)
         errorView = findViewById(R.id.error_layout)
+        retryButton = findViewById(R.id.retry_button)
 
         cartListAdapter = CartListAdapter(layoutInflater, { removeCartItem(it) })
         recycler.adapter = cartListAdapter
@@ -56,10 +58,11 @@ class CartActivity : BaseActivity(), CartView {
         presenter.loadCartItemsList()
     }
 
-    override fun showLoadError() {
+    override fun showLoadError(onRetry: () -> Unit) {
         errorView.visibility = View.VISIBLE
         progressBar.visibility = View.GONE
         recycler.visibility = View.GONE
+        retryButton.setOnClickListener { onRetry() }
     }
 
     private fun showProgress() {
@@ -76,6 +79,7 @@ class CartActivity : BaseActivity(), CartView {
     }
 
     private fun removeCartItem(cartItem: CartItem) {
+        showProgress()
         presenter.removeCartItem(cartItem)
     }
 
@@ -105,6 +109,6 @@ class CartActivity : BaseActivity(), CartView {
 
 interface CartView : BaseView {
     fun showCartItemsList(data: List<CartItem>)
-    fun showLoadError()
+    fun showLoadError(onRetry: () -> Unit)
     fun showSuccess()
 }

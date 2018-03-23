@@ -1,27 +1,30 @@
 package me.sgayazov.pizzatest.dataprovider
 
+import android.app.Application
+import android.arch.persistence.room.Database
+import android.arch.persistence.room.Room
+import android.arch.persistence.room.RoomDatabase
 import io.reactivex.Completable
 import io.reactivex.Single
-import me.sgayazov.pizzatest.domain.*
+import me.sgayazov.pizzatest.domain.CartItem
+import me.sgayazov.pizzatest.domain.Drink
+import me.sgayazov.pizzatest.domain.Order
+import me.sgayazov.pizzatest.domain.Pizza
+import me.sgayazov.pizzatest.persistence.CartDao
+import javax.inject.Inject
 
-class CacheDataProvider: BaseDataProvider {
-    override fun makeOrder(cartItemList: List<CartItem>): Completable {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+class CacheDataProvider @Inject constructor(application: Application) {
+
+    @Database(entities = [(Order::class)], version = 1)
+    abstract inner class AppDatabase : RoomDatabase() {
+        abstract fun cartDao(): CartDao
     }
 
-    override fun getPizzasList(): Single<PizzaWrapper> {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-    }
-
-    override fun getDrinksList(): Single<List<Drink>> {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-    }
-
-    override fun getIngredientsList(): Single<List<Ingredient>> {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-    }
+    private var db = Room.databaseBuilder(application,
+            AppDatabase::class.java, "pizza-db").build()
 
     fun getCartItems(): Single<List<CartItem>> {
+        db.cartDao().all
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
