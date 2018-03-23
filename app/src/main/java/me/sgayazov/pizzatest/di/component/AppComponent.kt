@@ -2,6 +2,7 @@ package me.sgayazov.pizzatest.di.component
 
 import dagger.Component
 import me.sgayazov.pizzatest.di.module.AppModule
+import me.sgayazov.pizzatest.di.module.DetailScreenModule
 import me.sgayazov.pizzatest.di.module.MainScreenModule
 import javax.inject.Singleton
 
@@ -9,4 +10,6 @@ import javax.inject.Singleton
 @Component(modules = [(AppModule::class)])
 interface AppComponent {
     operator fun plus(module: MainScreenModule): MainScreenComponent
+
+    operator fun plus(module: DetailScreenModule): DetailScreenComponent
 }

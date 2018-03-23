@@ -16,7 +16,6 @@ import me.sgayazov.pizzatest.presenter.MainPresenter
 import me.sgayazov.pizzatest.utils.EXTRA_PIZZA
 import javax.inject.Inject
 
-
 class MainActivity : BaseActivity(), MainView {
 
     @Inject

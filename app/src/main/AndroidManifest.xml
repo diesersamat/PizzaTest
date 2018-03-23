@@ -22,8 +22,7 @@
         <activity
             android:name=".activity.PizzaDetailsActivity"
             android:label="@string/title_activity_scrolling"
-            android:parentActivityName=".activity.MainActivity"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:parentActivityName=".activity.MainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="me.sgayazov.pizzatest.activity.MainActivity"/>

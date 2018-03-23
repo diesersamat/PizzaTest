@@ -23,6 +23,11 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/app/build/tmp/kapt3/stubs/debug/me/sgayazov/pizzatest/di/component/DetailScreenComponent.java">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/app/src/androidTest/java/me/sgayazov/pizzatest/activity/MainActivityTest.kt">
           <value>
             <set />
@@ -128,6 +133,11 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/me/sgayazov/pizzatest/di/component/DetailScreenComponent.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/app/src/main/java/me/sgayazov/pizzatest/di/component/InteractionsComponent.kt">
           <value>
             <set />
@@ -139,6 +149,11 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/app/src/main/java/me/sgayazov/pizzatest/di/module/AppModule.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/me/sgayazov/pizzatest/di/module/DetailScreenModule.kt">
           <value>
             <set />
           </value>
