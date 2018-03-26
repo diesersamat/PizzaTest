@@ -17,7 +17,7 @@ import me.sgayazov.pizzatest.network.ImageLoader
 import me.sgayazov.pizzatest.presenter.PizzaDetailsPresenter
 import me.sgayazov.pizzatest.utils.EXTRA_BASE_PRICE
 import me.sgayazov.pizzatest.utils.EXTRA_PIZZA
-import me.sgayazov.pizzatest.utils.Utils
+import me.sgayazov.pizzatest.utils.formatPrice
 import javax.inject.Inject
 
 class PizzaDetailsActivity : BaseActivity(), PizzaDetailsView {
@@ -86,7 +86,7 @@ class PizzaDetailsActivity : BaseActivity(), PizzaDetailsView {
     }
 
     override fun showPrice(finalPrice: Double) {
-        totalPrice.text = Utils.formatPrice(finalPrice)
+        totalPrice.text = formatPrice(finalPrice)
     }
 
     private fun loadIngredientsList() {

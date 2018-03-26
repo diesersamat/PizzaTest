@@ -398,6 +398,16 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/app/src/test/java/me/sgayazov/pizzatest/presenter/PizzaDetailsPresenterTest.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/test/java/me/sgayazov/pizzatest/utils/UtilsKtTest.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/gradle.properties">
           <value>
             <set />

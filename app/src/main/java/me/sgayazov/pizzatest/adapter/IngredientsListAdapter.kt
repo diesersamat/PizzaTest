@@ -8,7 +8,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import me.sgayazov.pizzatest.R
 import me.sgayazov.pizzatest.domain.Ingredient
-import me.sgayazov.pizzatest.utils.Utils
+import me.sgayazov.pizzatest.utils.formatPrice
 
 
 class IngredientsListAdapter(private val inflater: LayoutInflater,
@@ -24,7 +24,7 @@ class IngredientsListAdapter(private val inflater: LayoutInflater,
     override fun onBindViewHolder(holder: IngredientsViewHolder, position: Int) {
         items?.get(position)?.let { ingredient ->
             holder.title.text = ingredient.name
-            holder.price.text = Utils.formatPrice(ingredient.price)
+            holder.price.text = formatPrice(ingredient.price)
             holder.checkBox.isChecked = selectedIngredients.contains(ingredient.id)
             val onClickListener: (View) -> Unit = {
                 if (selectedIngredients.contains(ingredient.id)) {

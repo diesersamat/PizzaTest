@@ -13,7 +13,7 @@ import me.sgayazov.pizzatest.adapter.CartListAdapter
 import me.sgayazov.pizzatest.di.module.CartScreenModule
 import me.sgayazov.pizzatest.domain.CartItem
 import me.sgayazov.pizzatest.presenter.CartPresenter
-import me.sgayazov.pizzatest.utils.Utils
+import me.sgayazov.pizzatest.utils.formatPrice
 import javax.inject.Inject
 
 class CartActivity : BaseActivity(), CartView {
@@ -79,7 +79,7 @@ class CartActivity : BaseActivity(), CartView {
     }
 
     override fun showCartItemsList(data: List<CartItem>, totalPrice: Double) {
-        this.totalPrice.text = Utils.formatPrice(totalPrice)
+        this.totalPrice.text = formatPrice(totalPrice)
         cartListAdapter.items = data
         errorView.visibility = View.GONE
         progressBar.visibility = View.GONE

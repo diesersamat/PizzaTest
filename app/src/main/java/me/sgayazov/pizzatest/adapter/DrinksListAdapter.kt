@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import me.sgayazov.pizzatest.R
 import me.sgayazov.pizzatest.domain.Drink
-import me.sgayazov.pizzatest.utils.Utils
+import me.sgayazov.pizzatest.utils.formatPrice
 
 
 class DrinksListAdapter(private val inflater: LayoutInflater,
@@ -20,7 +20,7 @@ class DrinksListAdapter(private val inflater: LayoutInflater,
     override fun onBindViewHolder(holder: DrinksViewHolder, position: Int) {
         items?.get(position)?.let { drink ->
             holder.title.text = drink.name
-            holder.price.text = Utils.formatPrice(drink.price)
+            holder.price.text = formatPrice(drink.price)
             holder.itemView.setOnClickListener { listener(drink) }
         }
     }

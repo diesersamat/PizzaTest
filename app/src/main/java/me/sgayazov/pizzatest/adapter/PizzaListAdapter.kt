@@ -10,7 +10,7 @@ import android.widget.TextView
 import me.sgayazov.pizzatest.R
 import me.sgayazov.pizzatest.domain.Pizza
 import me.sgayazov.pizzatest.network.ImageLoader
-import me.sgayazov.pizzatest.utils.Utils
+import me.sgayazov.pizzatest.utils.formatPrice
 
 class PizzaListAdapter(private val context: Context, private val open: (Pizza) -> Unit, private val buy: (Pizza) -> Unit)
     : BaseAdapter<PizzaListAdapter.PizzaViewHolder, Pizza>() {
@@ -23,7 +23,7 @@ class PizzaListAdapter(private val context: Context, private val open: (Pizza) -
     override fun onBindViewHolder(holder: PizzaViewHolder, position: Int) {
         items?.get(position)?.let { pizza ->
             pizza.imageUrl?.let { ImageLoader.loadImage(context, it, holder.image) }
-            holder.price.text = Utils.formatPrice(pizza.finalPrice())
+            holder.price.text = formatPrice(pizza.finalPrice())
             holder.subtitle.text = pizza.ingredientsToString()
             holder.title.text = pizza.name
             holder.itemView.setOnClickListener { open(pizza) }
