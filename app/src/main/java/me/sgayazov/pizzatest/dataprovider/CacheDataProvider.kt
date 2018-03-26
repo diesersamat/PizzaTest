@@ -12,7 +12,7 @@ import me.sgayazov.pizzatest.domain.Pizza
 import me.sgayazov.pizzatest.persistence.CartDao
 import javax.inject.Inject
 
-@Database(entities = [(CartItem::class)], version = 1)
+@Database(entities = [(CartItem::class)], version = 1, exportSchema = false)
 abstract class AppDatabase : RoomDatabase() {
     abstract fun cartDao(): CartDao
 }
