@@ -101,4 +101,6 @@
     <string name="custom_pizza">Custom pizza</string>
     <string name="cart">Cart</string>
     <string name="drinks">Drinks</string>
+    <string name="checkout">Checkout</string>
+    <string name="back_to_home">Back to home</string>
 </resources>

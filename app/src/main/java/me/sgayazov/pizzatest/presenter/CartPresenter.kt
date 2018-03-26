@@ -8,16 +8,22 @@ class CartPresenter(view: CartView, interactor: Interactor) : BasePresenter<Cart
 
     fun loadCartItemsList() {
         addSubscription(interactor.getCartItems().subscribe { result, error ->
-            result?.let { view.showCartItemsList(it) }
+            result?.let { showLoadedCart(it) }
             error?.let { view.showLoadError({ loadCartItemsList() }) }
         })
     }
 
     fun removeCartItem(cartItem: CartItem) {
         addSubscription(interactor.removeCartItem(cartItem).subscribe { result, error ->
-            result?.let { view.showCartItemsList(it) }
+            result?.let { showLoadedCart(it) }
             error?.let { view.showLoadError({ removeCartItem(cartItem) }) }
         })
+    }
+
+    private fun showLoadedCart(cartList: List<CartItem>) {
+        var totalPrice = 0.0
+        cartList.forEach({ totalPrice += it.price })
+        view.showCartItemsList(cartList, totalPrice)
     }
 
     fun startCheckout() {

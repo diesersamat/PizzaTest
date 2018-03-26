@@ -40,10 +40,12 @@ class Interactor(private val cacheDataProvider: CacheDataProvider,
     }
 
     fun makeOrder(): Single<Any> {
-        return getCartItems().flatMap { networkDataProvider.makeOrder(it) }
-                .flatMap { clearCart().andThen(Single.just(it)) }
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
+        return getCartItems().flatMap {
+            networkDataProvider.makeOrder(it)
+                    .subscribeOn(Schedulers.io())
+                    .observeOn(AndroidSchedulers.mainThread())
+        }.flatMap { clearCart().andThen(Single.just(it)) }
+
     }
 
     fun addPizzaToCart(pizza: Pizza): Completable {

@@ -6,12 +6,14 @@ import android.support.v7.widget.RecyclerView
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
+import android.widget.TextView
 import me.sgayazov.pizzatest.PizzaApp
 import me.sgayazov.pizzatest.R
 import me.sgayazov.pizzatest.adapter.CartListAdapter
 import me.sgayazov.pizzatest.di.module.CartScreenModule
 import me.sgayazov.pizzatest.domain.CartItem
 import me.sgayazov.pizzatest.presenter.CartPresenter
+import me.sgayazov.pizzatest.utils.Utils
 import javax.inject.Inject
 
 class CartActivity : BaseActivity(), CartView {
@@ -30,15 +32,19 @@ class CartActivity : BaseActivity(), CartView {
     private lateinit var progressBar: View
     private lateinit var errorView: View
     private lateinit var retryButton: View
+    private lateinit var nextButton: View
+    private lateinit var totalPrice: TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_cart)
         recycler = findViewById(R.id.cart_recycler)
-        findViewById<View>(R.id.bottom_button).setOnClickListener { startCheckout() }
+        nextButton = findViewById(R.id.bottom_button)
+        nextButton.setOnClickListener { startCheckout() }
         progressBar = findViewById(R.id.loader)
         errorView = findViewById(R.id.error_layout)
         retryButton = findViewById(R.id.retry_button)
+        totalPrice = findViewById(R.id.total_price)
 
         cartListAdapter = CartListAdapter(layoutInflater, { removeCartItem(it) })
         recycler.adapter = cartListAdapter
@@ -66,16 +72,21 @@ class CartActivity : BaseActivity(), CartView {
     }
 
     private fun showProgress() {
+        nextButton.isEnabled = false
         errorView.visibility = View.GONE
         progressBar.visibility = View.VISIBLE
         recycler.visibility = View.GONE
     }
 
-    override fun showCartItemsList(data: List<CartItem>) {
+    override fun showCartItemsList(data: List<CartItem>, totalPrice: Double) {
+        this.totalPrice.text = Utils.formatPrice(totalPrice)
         cartListAdapter.items = data
         errorView.visibility = View.GONE
         progressBar.visibility = View.GONE
         recycler.visibility = View.VISIBLE
+        if (data.isNotEmpty()) {
+            nextButton.isEnabled = true
+        }
     }
 
     private fun removeCartItem(cartItem: CartItem) {
@@ -108,7 +119,7 @@ class CartActivity : BaseActivity(), CartView {
 }
 
 interface CartView : BaseView {
-    fun showCartItemsList(data: List<CartItem>)
+    fun showCartItemsList(data: List<CartItem>, totalPrice: Double)
     fun showLoadError(onRetry: () -> Unit)
     fun showSuccess()
 }

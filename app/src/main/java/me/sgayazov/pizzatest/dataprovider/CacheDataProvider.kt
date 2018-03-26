@@ -23,7 +23,7 @@ class CacheDataProvider @Inject constructor(application: Application) {
             AppDatabase::class.java, "pizza-db").build()
 
     fun getCartItems(): Single<List<CartItem>> {
-        return Single.create(db.cartDao().all)
+        return db.cartDao().all
     }
 
     fun removeCartItem(cartItem: CartItem): Completable {
@@ -32,14 +32,14 @@ class CacheDataProvider @Inject constructor(application: Application) {
 
     fun addDrinkToCart(drink: Drink): Completable {
         val cartItem = CartItem(drink.name + drink.price, drink.name, "", drink.price, false)
-        return Completable.fromAction { db.cartDao().delete(cartItem) }
+        return Completable.fromAction { db.cartDao().insertAll(cartItem) }
     }
 
     fun addPizzaToCart(pizza: Pizza): Completable {
         val cartItem = CartItem(pizza.name + pizza.finalPrice() + pizza.ingredientsToString(),
                 pizza.name, pizza.ingredientsToString(),
                 pizza.finalPrice(), true)
-        return Completable.fromAction { db.cartDao().delete(cartItem) }
+        return Completable.fromAction { db.cartDao().insertAll(cartItem) }
     }
 
     fun clearCart(): Completable {
